@@ -4,7 +4,7 @@ mybatis 源码学习
 
 ## 启动 docker 容器
 
-> docker-compose -f ./dockers/docker-compose.yml up -d
+> docker-compose -f ./docker/docker-compose.yml up -d
 
 进入 mysql 命令：
 

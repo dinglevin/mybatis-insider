@@ -4,14 +4,20 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
-    <artifactId>jdbc-example</artifactId>
+    <artifactId>mybatis-example</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
+        <mybatis.version>3.5.10</mybatis.version>
         <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -33,17 +39,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.github.dinglevin.jdbc.example.JdbcExample</mainClass>
-                    <arguments>
-                        <argument>arg1</argument>
-                        <argument>arg2</argument>
-                    </arguments>
-                    <systemProperties>
-                        <property>
-                            <key>propertyName</key>
-                            <value>propertyValue</value>
-                        </property>
-                    </systemProperties>
+                    <mainClass>com.github.dinglevin.mybatis.MyBatisExampleMain</mainClass>
                 </configuration>
             </plugin>
         </plugins>
