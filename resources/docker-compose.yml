@@ -1,0 +1,19 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: mybatis-insider-mysql
+    environment:
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin123
+      MYSQL_ROOT_PASSWORD: admin123
+    volumes:
+      - /Users/dinglevin/data/mybatis-insider/mysql:/var/lib/mysql
+    ports:
+      - '3306:3306'
+    networks:
+      - mybatis-insider-network
+
+networks:
+  mybatis-insider-network:
+    driver: bridge
