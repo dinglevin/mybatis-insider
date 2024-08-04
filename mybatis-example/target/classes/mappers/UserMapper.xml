@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.github.dinglevin.mybatis.example.mapper.UserMapper">
+    <select id="selectUser" parameterType="int"
+        resultType="com.github.dinglevin.mybatis.example.dataobject.UserDO"> 
+        SELECT * FROM users WHERE id = #{id}
+    </select>
+
+    <select id="selectUserByParam" resultType="com.github.dinglevin.mybatis.example.dataobject.UserDO">
+        SELECT * 
+        FROM users
+        WHERE 1 = 1
+        <if test="idList != null and idList.size() > 0">
+            AND id IN 
+            <foreach collection="idList" item="id" open="(" separator="," close=")">
+                #{id}
+            </foreach>
+        </if>
+        <if test="nameList != null and nameList.size() > 0">
+            AND name IN 
+            <foreach collection="nameList" item="name" open="(" separator="," close=")">
+                #{name}
+            </foreach>
+        </if>
+        <if test="emailList != null and emailList.size() > 0">
+            AND email IN 
+            <foreach collection="emailList" item="email" open="(" separator="," close=")">
+                #{email}
+            </foreach>
+        </if>
+    </select>
+</mapper>
